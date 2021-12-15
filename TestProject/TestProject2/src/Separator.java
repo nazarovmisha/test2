@@ -12,7 +12,7 @@ public class Separator {
                 if ((arr[i]) % 2 == 0) {
                   int [now] even = arr[i];
                     now +=1;
-                    System.out.println(even);
+                    System.out.println(even);hjhhg
                 }
 
             }
