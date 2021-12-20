@@ -1,20 +1,28 @@
 public class Separator {
+    int [][] array;
+    public Separator(){
+        this.array = array;
+    }
+    int[] even (){
+        int k=0, now = 0;
+        for (int i=0;i<array.length;i++){
+            if(i%2==0) k++;
+
+        }
+        int [] events= new int[k];
+            for (int i=0; i<array.length;i++){
+                if(array[i]%2==0);
+                events(now)=array[i];
+                now=+1;
 
 
-    public static boolean contains(int[] arr, int item) {
-        for (int n : arr) {
-            if (n == item) {
-                return true;
             }
         }
-        return false;
+
     }
 
-    public static void main(String[] args) {
-        int [] myarr1 = {1,544,55, 47, 555, 5};
-        System.out.println(contains(myarr1, 544));
-        System.out.println(contains(myarr1, 777));
-        System.out.println(contains(myarr1, 47));
-    }
 
-}
+
+
+
+
