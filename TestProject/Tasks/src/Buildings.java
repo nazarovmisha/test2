@@ -40,6 +40,6 @@ class Skyscraper extends Buildings{
         super(floors, elevator, name);
         this.highSpeedElevator = highSpeedElevator;
     }
-    public String toString(){ return "Skyspacer" + this.getName() +". Floors = " + this.getFloors() +
-            "Elevators =" + getElevator() + "HighSpeedElevator =" + highSpeedElevator;}
+    public String toString(){ return "Skyspacer =" + this.getName() +". Floors = " + this.getFloors() +
+            ". Elevators =" + getElevator() + ". HighSpeedElevator =" + highSpeedElevator +".";}
 }
