@@ -12,7 +12,7 @@ public class summMass {
         }
         int summ = 0;
         for (int i = 0; i < length; i++) {
-            if (array[i] % 4 == 0) {
+            if (array[i] % 5 == 0) {
                 summ += array[i];
 
             }
