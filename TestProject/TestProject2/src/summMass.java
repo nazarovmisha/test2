@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class summMass {
+public class summMass im {
     public static void main(String[] args) {
         System.out.println("Введите число элементов");
         Scanner scanner = new Scanner(System.in);
