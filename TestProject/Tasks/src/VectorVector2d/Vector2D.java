@@ -28,7 +28,7 @@ class Vector2D extends Vector {
 
     public double getAngle(Vector2D vector2D) {
         if (getLength() != 0 && vector2D.getLength() != 0) {
-            return getScalarProduct(vector2D) / (this.getLength());
+            return getScalarProduct(vector2D) / (this.getLength()*vector2D.getLength());
         } else {
             return -2.0;
         }
