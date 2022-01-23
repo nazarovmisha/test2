@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+public class SimpleCalc {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num1 = sc.nextInt();
+        int num2 = sc.nextInt();
+        char oper = sc.next().charAt(0);
+        System.out.println(num1 + oper + num2);
+    }
+}
+
+
