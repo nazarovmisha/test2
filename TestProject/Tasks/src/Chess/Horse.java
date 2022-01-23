@@ -1,19 +1,25 @@
 package Chess;
 
-public abstract class Horse extends ChessPiece{
+public abstract class Horse extends ChessPiece {
 
 
     public Horse(String color) {
         super(color);
     }
-    public String getColor(){
+
+    public String getColor() {
         return color;
     }
-    public void canMoveToPosition(int toLine, int toColumn){
-        if (board
+
+    public boolean canMoveToPosition(int line, int column, int toLine, int toColumn, ChessBoard board) {
+        if(!board.checkPos(toLine) && !board.checkPos(toColumn)){
             return false;
+        }
+        if (){
+
+        }
 
         }
 
     }
-}
+
