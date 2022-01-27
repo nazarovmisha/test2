@@ -13,19 +13,19 @@ public class Pawn extends ChessPiece {
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
         if (checkPos(line) && checkPos(column) && checkPos(toLine) && checkPos(toColumn) && chessBoard.board[line][column] != null) { // check that position in board
-            if (column == toColumn) { // check that we don't want to eat
+            if (column == toColumn) {
                 int dir;
                 int start;
 
-                if (color.equals("White")) {  // for white piece
+                if (color.equals("White")) {
                     dir = 1;
                     start = 1;
-                } else { // for black piece
+                } else {
                     dir = -1;
                     start = 6;
                 }
 
-                if (line + dir == toLine) {  //check direction
+                if (line + dir == toLine) {
                     return chessBoard.board[toLine][toColumn] == null;
                 }
 
@@ -33,7 +33,7 @@ public class Pawn extends ChessPiece {
                     return chessBoard.board[toLine][toColumn] == null && chessBoard.board[line + dir][column] == null; // check that positions is null
                 }
 
-            } else { // want to eat piece
+            } else {
 
                 if ((column - toColumn == 1 || column - toColumn == -1) && (line - toLine == 1 || line - toLine == -1) && // check that piece another color
                         chessBoard.board[toLine][toColumn] != null) {
