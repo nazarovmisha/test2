@@ -95,4 +95,42 @@ public class ChessBoard {
             } else return false;
         }
     }
+
+    public boolean castling7() {
+        if (nowPlayer.equals("White")) {
+            if (board[0][7] == null || board[0][4] == null) return false;
+            if (board[0][7].getSymbol().equals("R") && board[0][4].getSymbol().equals("K") &&
+                    board[0][5] == null && board[0][6] == null ) {
+                if (board[0][7].getColor().equals("White") && board[0][4].getColor().equals("White") &&
+                        board[0][7].check && board[0][4].check &&
+                        !new King("White").isUnderAttack(this, 0, 6)) {
+                    board[0][4] = null;
+                    board[0][6] = new King("White");
+                    board[0][6].check = false;
+                    board[0][7] = null;
+                    board[0][5] = new Rook("White");
+                    board[0][5].check = false;
+                    nowPlayer = "Black";
+                    return true;
+                } else return false;
+            } else return false;
+        } else {
+            if (board[7][7] == null || board[7][4] == null) return false;
+            if (board[7][7].getSymbol().equals("R") && board[7][4].getSymbol().equals("K") &&
+                    board[7][5] == null && board[7][6] == null) {
+                if (board[7][7].getColor().equals("Black") && board[7][4].getColor().equals("Black") &&
+                        board[7][7].check && board[7][4].check &&
+                        !new King("Black").isUnderAttack(this, 7, 6)) {
+                    board[7][4] = null;
+                    board[7][6] = new King("Black");
+                    board[7][6].check = false;
+                    board[7][7] = null;
+                    board[7][5] = new Rook("Black");
+                    board[7][5].check = false;
+                    nowPlayer = "White";
+                    return true;
+                } else return false;
+            } else return false;
+        }
+    }
 }
