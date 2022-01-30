@@ -10,7 +10,6 @@ public class Code {
     public void replaceAll() {
         code = code.replaceAll("e", "Xww12").replaceAll("s", "Bmmj44")
                 .replaceAll("c", "rtt").replaceAll("a", "qwerasdf");
-
         System.out.println(code);
     }
 
@@ -18,7 +17,6 @@ public class Code {
         code = code.replaceAll("Xww12", "e").replaceAll("Bmmj44", "s")
                 .replaceAll("rtt", "c").replaceAll("qwerasdf", "a");
         System.out.println(code);
-
     }
 }
 
