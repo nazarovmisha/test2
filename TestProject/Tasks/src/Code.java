@@ -1,6 +1,8 @@
 public class Code {
     String code = "secret message";
 
+
+
     public static void main(String[] args) {
         Code c1 = new Code();
         c1.replaceAll();
