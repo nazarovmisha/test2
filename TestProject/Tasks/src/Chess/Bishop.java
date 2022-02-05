@@ -5,54 +5,77 @@ public class Bishop extends ChessPiece {
         super(color);
     }
 
-    public boolean checkPos(int pos) {
-        if (0 <= pos && pos <= 7) {
-            return true;
-        } else return false;
-    }
-
     @Override
     public String getColor() {
-        return this.color;
+        return color;
     }
 
     @Override
     public boolean canMoveToPosition(ChessBoard chessBoard, int line, int column, int toLine, int toColumn) {
-        if (checkPos(line) && checkPos(column) && checkPos(toLine) && checkPos(toColumn)) {
-            if (line != toLine && column != toColumn && (chessBoard.board[toLine][toColumn] == null ||
-                    !chessBoard.board[toLine][toColumn].color.equals(this.color)) &&
-                    chessBoard.board[line][column] != null) {
-                if (!chessBoard.board[line][column].equals(this)) {
-                    return false;
-                }
+        // check that we can move to position and can't moved out from board or in not empty position
+        if (line != toLine && column != toColumn &&
+                getMax(line, toLine) - getMin(line, toLine) == getMax(column, toColumn) - getMin(column, toColumn) &&
+                checkPos(line) && checkPos(column) && checkPos(toLine) && checkPos(toColumn) &&
+                (chessBoard.board[toLine][toColumn] == null || !chessBoard.board[toLine][toColumn].color.equals(this.color)) &&
+                chessBoard.board[line][column] != null) {
+            if (!chessBoard.board[line][column].equals(this)) {
+                return false;
             }
 
-            int[][] positions = new int[][]{
-                    {line - 1, column - 1}, {line - 2, column - 2},
-                    {line - 3, column - 3}, {line - 4, column - 4},
-                    {line - 5, column - 5}, {line - 6, column - 6},
-                    {line - 7, column - 7}, {line + 1, column + 1},
-                    {line + 2, column + 2}, {line + 3, column + 3},
-                    {line + 4, column + 4}, {line + 5, column + 5},
-                    {line + 6, column + 6}, {line + 7, column + 7},
-                    {line - 1, column + 1}, {line - 2, column + 2},
-                    {line - 3, column + 3}, {line - 4, column + 4},
-                    {line - 5, column + 5}, {line - 6, column + 6},
-                    {line - 7, column + 7}, {line + 1, column - 1},
-                    {line + 2, column - 2}, {line + 3, column - 3},
-                    {line + 4, column - 4}, {line + 5, column - 5},
-                    {line + 6, column - 6}, {line + 7, column - 7}};
-            for (int i = 0; i < positions.length; i++) {
-                if (positions[i][0] == toLine && positions[i][1] == toColumn) {
-                    return true;
+            // from up-left to down-right
+            if ((column == getMin(column, toColumn) && line == getMax(line, toLine)) ||
+                    (toColumn == getMin(column, toColumn) && toLine == getMax(line, toLine))) {
+                int fromL = getMax(line, toLine);
+                int fromC = getMin(column, toColumn);
+                int toL = getMin(line, toLine);
+                int toC = getMax(column, toColumn);
+                int[][] positions = new int[toC - fromC][1];
+                for (int i = 1; i < toC - fromC; i++) {
+                    if (chessBoard.board[fromL - i][fromC + i] == null) {
+                        positions[i - 1] = new int[]{fromL - i, fromC + i};
+                    } else if (!chessBoard.board[fromL - i][fromC + i].color.equals(this.color) && fromL - i == toLine) {
+                        positions[i - 1] = new int[]{fromL - i, fromC + i};
+                    } else {
+                        return false;
+                    }
                 }
+                return true;
+            } else {
+                // from down-left to up-right
+                int fromL = getMin(line, toLine);
+                int fromC = getMin(column, toColumn);
+                int toL = getMax(line, toLine);
+                int toC = getMax(column, toColumn);
+                int[][] positions = new int[toC - fromC][1];
+                for (int i = 1; i < toC - fromC; i++) {
+                    if (chessBoard.board[fromL + i][fromC + i] == null) {
+                        positions[i - 1] = new int[]{fromL + i, fromC + i};
+                    } else if (!chessBoard.board[fromL + i][fromC + i].color.equals(this.color) && fromL + i == toLine) {
+                        positions[i - 1] = new int[]{fromL + i, fromC + i};
+                    } else {
+                        return false;
+                    }
+                }
+                return true;
             }
         } else return false;
-        return false;
     }
 
     @Override
-    String getSymbol() {
+    public String getSymbol() {
         return "B";
     }
+
+    public int getMax(int a, int b) {
+        return Math.max(a, b);
+    }
+
+    public int getMin(int a, int b) {
+        return Math.min(a, b);
+    }
+
+    public boolean checkPos(int pos) {
+        return pos >= 0 && pos <= 7;
+    }
 }
+
