@@ -23,7 +23,7 @@ public class Task4 {
             resString = "0";
         }
 
-        FileWriter writer = new FileWriter("outpoot.txt", false);
+        FileWriter writer = new FileWriter("Root/src/outpoot.txt", false);
         writer.write(resString.trim());
         writer.flush();
 
