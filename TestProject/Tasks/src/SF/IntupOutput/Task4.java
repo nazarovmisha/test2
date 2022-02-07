@@ -11,11 +11,12 @@ public class Task4 {
         Scanner scanner = new Scanner(new FileInputStream("Root/src/numbers.txt"));
         int index = 1;
         String resString = "";
+
         while (scanner.hasNextLine()) {
             String nowNumber = scanner.nextLine();
-            if (index == Integer.parseInt(nowNumber)) ;
-            resString += nowNumber + " ";
-
+            if (Integer.parseInt(nowNumber) == index) {
+                resString += nowNumber + " ";
+            }
             index++;
         }
 
@@ -23,10 +24,9 @@ public class Task4 {
             resString = "0";
         }
 
-        FileWriter writer = new FileWriter("Root/src/outpoot.txt", false);
+
+        FileWriter writer = new FileWriter("Root/src/output.txt", false);
         writer.write(resString.trim());
         writer.flush();
-
     }
 }
-
