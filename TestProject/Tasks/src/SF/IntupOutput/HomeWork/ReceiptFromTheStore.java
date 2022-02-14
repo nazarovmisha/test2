@@ -9,11 +9,12 @@ public class ReceiptFromTheStore {
     public static class HomeWork {
         ;
 
-        public static void main(String[] args) throws FileNotFoundException {
+        public void main(String[] args) throws FileNotFoundException {
+            HomeWork h = new HomeWork();
             summ();
         }
 
-         public static void summ(String product) throws FileNotFoundException {
+         public  double summ(String product) throws FileNotFoundException {
             Scanner scannerReceipt = new Scanner(new FileInputStream("D://File.txt"));
             Scanner scannerDiscount = new Scanner(new FileInputStream("D://Discount.txt"));
 
