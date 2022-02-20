@@ -1,0 +1,7 @@
+﻿№;Product;Price;Quantity;
+1;Milk;68.50;2;
+2;Bread;25.00;1;
+3;Cucumber;253;1.24;
+4;Bear;99.99;2;
+5;Chips;50.00;1;
+6;Coca-cola;95.00;2;
