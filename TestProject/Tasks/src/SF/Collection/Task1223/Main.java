@@ -1,4 +1,4 @@
-package SF.Collection.Task1224;
+package SF.Collection.Task1223;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
