@@ -1,4 +1,4 @@
-package SF.Exceptions.Task1;
+package SF.Exception.Task1;
 
 class DivisionExc extends Exception {
 

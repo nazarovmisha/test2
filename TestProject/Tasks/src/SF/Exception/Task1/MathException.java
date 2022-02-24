@@ -1,4 +1,6 @@
-package SF.Exceptions.Task1;
+package SF.Exception.Task1;
+
+import SF.Exception.Task1.DivisionExc;
 
 import java.util.ArrayList;
 import java.util.List;
