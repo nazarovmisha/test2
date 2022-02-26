@@ -13,7 +13,7 @@ public class Main {
         sportsmanSet.add(new Sportsman("Denis", 1.99, 126.7, 122.0));
         sportsmanSet.add(new Sportsman("Ryslan", 1.72, 89.3, 85));
         sportsmanSet.add(new Sportsman("Dmitryi", 1.77, 79.9, 99));
-        sportsmanSet.add(new Sportsman("Zaxar", 1.78, 86.4, 2));
+        sportsmanSet.add(new Sportsman("Zahar", 1.78, 86.4, 2));
 
         for (Sportsman sportsman: sportsmanSet){
             System.out.println(sportsman.getWeight());
