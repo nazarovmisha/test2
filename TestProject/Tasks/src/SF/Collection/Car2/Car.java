@@ -9,7 +9,7 @@ public class Car {
     private Boolean onSale;
 
     public Car(String brand, String model, Boolean onSale) {
-        if (brand == null||model==null){
+        if (brand == null || model == null) {
             throw new IllegalArgumentException();
         }
         this.brand = brand;
@@ -46,6 +46,13 @@ public class Car {
         return Objects.hash(brand, model);
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Car{" +
+               "brand='" + brand + '\'' +
+               ", model='" + model + '\'' +
+               ", onSale=" + onSale +
+               '}';
+    }
 }
+

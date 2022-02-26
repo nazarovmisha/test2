@@ -74,12 +74,11 @@ public class Main {
         carList.add(car29);
         carList.add(car30);
 
-        Set<Car > carSet = new HashSet<>(carList);
-        for (Car car:carSet){
-            System.out.println(car);
+        Set<Car> carSet = new TreeSet<>(new CarComparator().reversed());
+
+        carSet.addAll(carList);
+        for (Car car : carSet) {
+            System.out.println(car.getModel());
         }
-
-        }
-
-
+    }
 }
