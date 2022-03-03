@@ -11,20 +11,28 @@ import java.util.Scanner;
 public class EchoServer {
     public static void main(String[] args) throws IOException {
         ServerSocket server = new ServerSocket(1234);
-        System.out.println("Waiting ...");
-
-        Socket s = server.accept();
-        System.out.println("Client connected!");
-
-        InputStream is = s.getInputStream();
-        OutputStream os = s.getOutputStream();
-
-        Scanner in = new Scanner(is);
-        PrintStream out = new PrintStream(os);
-
-        out.println("What is our name?");
-        out.println("Hello," + in.nextLine());
+        while (true) {
 
 
+            System.out.println("Waiting ...");
+
+            Socket socket = server.accept();
+            System.out.println("Client connected!");
+
+            InputStream is = socket.getInputStream();
+            OutputStream os = socket.getOutputStream();
+
+            Scanner in = new Scanner(is);
+            PrintStream out = new PrintStream(os);
+
+            out.println("Welcome to mountains!");
+            String input = in.nextLine();
+            while (!input.equals("Bye")) {
+                out.println(input + "-" + input + "-" + input.substring(input.length() / 2) + "...");
+                input = in.nextLine();
+            }
+            socket.close();
+
+        }
     }
 }
