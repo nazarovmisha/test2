@@ -2,6 +2,7 @@ package CollectionsHomeWork;
 
 import java.util.Objects;
 
+
 public class Sportsman {
     private final String name;
     private final double height;
@@ -54,6 +55,8 @@ public class Sportsman {
     public void setBestAttempt(double bestAttempt) {
         this.bestAttempt = bestAttempt;
     }
+
+
 }
 
 

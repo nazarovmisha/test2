@@ -5,7 +5,7 @@ import java.util.Comparator;
 public class WeightComparator implements Comparator<Sportsman> {
 
     @Override
-    public int compare(Sportsman o1, Sportsman o2) {
-        return Double.compare(o1.getWeight(),o2.getWeight());
+    public int compare(Sportsman sportsman1, Sportsman sportsman2) {
+        return Double.compare(sportsman1.getWeight(), sportsman2.getWeight());
     }
 }
