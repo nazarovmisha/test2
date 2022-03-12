@@ -4,16 +4,24 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class Client implements Runnable {
 
     Socket socket;
+    Scanner in;
+    PrintStream out;
+    ChatServer server;
 
-    public Client(Socket socket) {
+    public Client(Socket socket, ChatServer server) {
         this.socket = socket;
+        this.server = server;
+        new Thread(this).start();
+    }
+
+    void receive(String message) {
+        out.println(message);
     }
 
     @Override
@@ -22,32 +30,21 @@ public class Client implements Runnable {
             InputStream is = socket.getInputStream();
             OutputStream os = socket.getOutputStream();
 
-            Scanner in = new Scanner(is);
-            PrintStream out = new PrintStream(os);
+            in = new Scanner(is);
+            out = new PrintStream(os);
 
-            out.println("Welcome to mountains");
+            out.println("Welcome to chat");
             String input = in.nextLine();
-            while (!input.equals("bye")){
-                out.println(input + "-" + input + "-" + input.substring(input.length()/2) + "...");
+            while (!input.equals("bye")) {
+               server.sendAll(input);
                 input = in.nextLine();
             }
             socket.close();
-
 
         } catch (IOException e) {
             e.printStackTrace();
 
         }
-
-    }
-
-    public static void main(String[] args) throws IOException {
-        ServerSocket server = new ServerSocket(1234);
-        while (true){
-            System.out.println("Waiting");
-            Socket socket = server.accept();
-            System.out.println("Client connected!");
-            new Thread (new Client(socket)).start();
-        }
     }
 }
+
