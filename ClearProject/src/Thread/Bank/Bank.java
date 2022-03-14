@@ -1,22 +1,22 @@
 package Thread.Bank;
 
 public class Bank {
-    private int money = 10000;
+    private static int money = 10000;
 
-    public int getMoney() {
+    static int getMoney() {
         return money;
     }
 
-    public synchronized void takeMoney(int money) {
-        this.money -= money;
+    static synchronized void takeMoney(int money) {
+        Bank.money -= money;
     }
 
-    public synchronized void repayMoney(int money) {
-        this.money += money;
+    static synchronized void repayMoney(int money) {
+        Bank.money += money;
 
     }
 
-    class Client extends Thread {
+   static class Client extends Thread {
         @Override
         public void run() {
             while (true) {
@@ -27,16 +27,14 @@ public class Bank {
         }
     }
 
-    public Bank() {
-        new Client().start();
-        new Client().start();
-        new Client().start();
-    }
-
     public static void main(String[] args) throws InterruptedException {
-        Bank bank = new Bank();
+
+        new Client().start();
+        new Client().start();
+        new Client().start();
+
         while (true) {
-            System.out.println(bank.getMoney());
+            System.out.println(Bank.getMoney());
             Thread.sleep(1000);
         }
     }
