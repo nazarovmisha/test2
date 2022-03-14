@@ -7,11 +7,11 @@ public class Bank {
         return money;
     }
 
-    public void takeMoney(int money) {
+    public synchronized void takeMoney(int money) {
         this.money -= money;
     }
 
-    public void repayMoney(int money) {
+    public synchronized void repayMoney(int money) {
         this.money += money;
 
     }
