@@ -11,7 +11,6 @@ public class Unloading2 extends Thread {
 
     public static void main(String[] args) {
 
-
         Thread thread1 = new Thread() {
 
             @Override
@@ -62,5 +61,6 @@ public class Unloading2 extends Thread {
         thread2.start();
     }
 }
+
 
 
