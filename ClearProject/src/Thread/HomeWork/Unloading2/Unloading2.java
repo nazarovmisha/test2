@@ -7,7 +7,6 @@ public class Unloading2 extends Thread {
     static int secondShipCapacity = 220;
     static int craneCapacity = 30;
 
-
     static Object lock = new Object();
 
     public static void main(String[] args) {
@@ -15,14 +14,13 @@ public class Unloading2 extends Thread {
 
         Thread thread1 = new Thread() {
 
-
             @Override
             public void run() {
                 synchronized (lock) {
 
                     while (firstShipCapacity > 0) {
                         try {
-                            Thread.sleep(500);
+                            Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -33,7 +31,6 @@ public class Unloading2 extends Thread {
                         System.out.println(firstShipCapacity);
                     }
                     System.out.println("the first ship unloaded");
-
                 }
             }
         };
@@ -45,7 +42,7 @@ public class Unloading2 extends Thread {
                 synchronized (lock) {
                     while (secondShipCapacity > 0) {
                         try {
-                            Thread.sleep(500);
+                            Thread.sleep(1000);
 
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -58,7 +55,6 @@ public class Unloading2 extends Thread {
                         System.out.println(secondShipCapacity);
                     }
                     System.out.println("the second ship unloaded");
-
                 }
             }
         };
