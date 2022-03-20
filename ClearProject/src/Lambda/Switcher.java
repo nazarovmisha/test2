@@ -6,5 +6,8 @@ public class Switcher {
 
     public void switchOn(){
         System.out.println("Switcher is on");
+        if(consumer!=null)
+            consumer.electricityOn();
+
     }
 }
