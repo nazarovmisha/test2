@@ -1,8 +1,8 @@
-package Thread;
+package DateTimeAPI;
 
 import java.time.LocalTime;
 
-public class Time {
+public class TimeChange {
     public static void main(String[] args) {
 
         LocalTime time = LocalTime.of(16, 30);
