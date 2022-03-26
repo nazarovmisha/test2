@@ -15,6 +15,10 @@ public class StringToInt {
         for (String s:arrayList){
             arrayListInt.add(Integer.parseInt(s));
         }
-        System.out.println(arrayListInt);
+        int multiply = 1;
+        for (int i : arrayListInt) {
+            multiply *= i;
+        }
+        System.out.println(multiply);
     }
 }
