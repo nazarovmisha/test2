@@ -5,7 +5,7 @@ public class StringEqualsIgnoreCase {
 
         String s1 = "Vasilii Ivanov";
         String s2 = "vasilii ivanov";
-checkName(s1,s2);
+        checkName(s1, s2);
     }
 
     public static void checkName(String firstName, String secondName) {
@@ -14,7 +14,6 @@ checkName(s1,s2);
             System.out.println("Viberite drygoe imya");
         } else {
             System.out.println("Otlichnoe imya");
-
         }
     }
 }
