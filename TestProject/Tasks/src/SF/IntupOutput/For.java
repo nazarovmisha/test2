@@ -11,8 +11,6 @@ public class For {
             if(numbers[i]%2==0){
                 numbers[i]=i-i*2-1;
             }
-
-
         }
         System.out.println(Arrays.toString(numbers));
     }
