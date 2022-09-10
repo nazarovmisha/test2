@@ -41,8 +41,6 @@ public class CountDig {
                 tmp++;
             }
         }
-
-
         return tmp;
     }
 }
