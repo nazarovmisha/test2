@@ -3,8 +3,8 @@ package SF.IntupOutput;
 public class StringEqualsIgnoreCase {
     public static void main(String[] args) {
 
-        String s1 = "John";
-        String s2 = "vasilii ivanov";
+        String s2 = "John";
+        String s1 = "Alexy Laiho Second";
         checkName(s1, s2);
     }
 
@@ -14,7 +14,8 @@ public class StringEqualsIgnoreCase {
             System.out.println("Change name");
         } else {
             System.out.println("Good name");
-            System.out.println("Your name leigth -" + " " + firstName.length());
+            System.out.println(firstName +  " length -" + " " + firstName.length());
+            System.out.println("Name length without spaces" + " " + firstName.replaceAll(" ", "").length());
         }
     }
 }
