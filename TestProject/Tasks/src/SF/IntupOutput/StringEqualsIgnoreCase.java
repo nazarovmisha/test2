@@ -5,8 +5,12 @@ public class StringEqualsIgnoreCase {
 
         String s1 = "Vasilii Ivanov";
         String s2 = "vasilii ivanov";
+checkName(s1,s2);
+    }
 
-        if(s1.equalsIgnoreCase(s2)){
+    public static void checkName(String firstName, String secondName) {
+
+        if (firstName.equalsIgnoreCase(secondName)) {
             System.out.println("Viberite drygoe imya");
         } else {
             System.out.println("Otlichnoe imya");
