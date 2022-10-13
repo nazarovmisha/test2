@@ -1,23 +1,29 @@
 package Entity;
 
-public class Player extends Human {
-    public Player(String name) {
-        super(name);
-    }
+public class Player extends Human{
 
-    class Backpack {
-
+    class Backpack{
         private String staff = "";
-
-        public void put(String thing) {
-            staff += thing + ",";
+        void put(String thing){
+            staff += thing +",";
         }
-
-        @Override
-        public String toString() {
+        public String toString(){
             if (staff.equals("")) {
-                return "The packback is empty";
-            } else return staff.substring(0, staff.length() - 1) + " in the backpack";
+                return "the backpack is empty";
+            }
+            return staff.substring(0, staff.length()-1) + " in the backpack";
         }
     }
+
+    Backpack backpack;
+
+    public Player(String name) {
+        super(name + " the Player");
+        backpack = new Backpack();
+    }
+
+    public void take(String thing){
+        backpack.put(thing);
+    }
+
 }
