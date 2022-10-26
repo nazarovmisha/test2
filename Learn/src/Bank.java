@@ -1,4 +1,4 @@
-
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Bank {
 
@@ -10,23 +10,18 @@ public class Bank {
         }
     }
 
-    private int money = 10000;
-    Object lock = new Object();
+    AtomicInteger money = new AtomicInteger(10000);
 
     int getMoney() {
-        return money;
+        return money.get();
     }
 
     void take(int money) {
-        synchronized (lock) {
-            this.money -= money;
-        }
+        this.money.addAndGet(-money);
     }
 
     void repay(int money) {
-        synchronized (lock) {
-            this.money += money;
-        }
+        this.money.addAndGet(money);
     }
 
     class Client extends Thread {
