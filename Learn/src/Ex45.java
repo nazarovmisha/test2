@@ -1,6 +1,6 @@
 import java.util.HashSet;
 
-//Напишите Java-программу для добавления указанного элемента в конец хеш-набора.
+//Напишите Java-программу для перебора всех элементов в хэш-списке.
 public class Ex45 {
     public static void main(String[] args) {
         HashSet<String> set = new HashSet<>();
@@ -10,5 +10,6 @@ public class Ex45 {
         set.add("Black");
         for (String e : set)
             System.out.println(e);
+
     }
 }
