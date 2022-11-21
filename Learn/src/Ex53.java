@@ -10,7 +10,7 @@ public class Ex53 {
         set.add("White");
         set.add("White");
         set.add("Black");
-        Iterator it = set.descendingIterator();
+        Iterator<String> it = set.descendingIterator();
         while (it.hasNext()){
             System.out.println(it.next());
         }
