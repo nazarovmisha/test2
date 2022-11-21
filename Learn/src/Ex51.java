@@ -11,8 +11,7 @@ public class Ex51 {
         set.add("White");
         set.add("White");
         set.add("Black");
-        Set<String> newSet = new TreeSet<>();
-        newSet.addAll(set);
+        Set<String> newSet = new TreeSet<>(set);
         for (String e : newSet)
             System.out.println(e);
     }
